@@ -68,14 +68,17 @@ $( document ).ready(function() {
     
     //identify scroll event
     window.onscroll = function() {
-    
+        
+        //the delay of ttriger point
+        var delay = 150 
+
         //track current position on screen
         var current_position = this.scrollY;
 
         //get each part position
         var part_1_pos = document.querySelector('.basic-html').getBoundingClientRect().top + document.documentElement.scrollTop
-        var part_2_pos = document.querySelector('.basic-css').getBoundingClientRect().top + document.documentElement.scrollTop
-        var part_3_pos = document.querySelector('.basic-JS').getBoundingClientRect().top + document.documentElement.scrollTop
+        var part_2_pos = document.querySelector('.basic-css').getBoundingClientRect().top + document.documentElement.scrollTop + delay
+        var part_3_pos = document.querySelector('.basic-JS').getBoundingClientRect().top + document.documentElement.scrollTop + delay
 
         //get screen size
         var w = window.innerWidth
@@ -88,7 +91,8 @@ $( document ).ready(function() {
         var end = screen_height + current_position
         var center_of_screen = (end + current_position)/2
 
-    
+        console.log(center_of_screen,part_2_pos,part_3_pos)
+
         //part 1
         document.getElementsByClassName('text-in-image')[0].style['font-size'] 
             = Math.min(current_position,max_font_size).toString() + 'px'
